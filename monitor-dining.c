@@ -10,6 +10,7 @@ to synchronize the diners so that deadlock is impossible.
 #include <unistd.h>
 
 #define NFORKS 5
+int forks[NFORKS] = {0};
 
 int sleeptime = 1000000; /* microseconds */
 
