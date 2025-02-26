@@ -41,7 +41,7 @@ void * reader_writer_thread( void * arg )
     if(rand()%10 < 8) {
       printf("thread %d wants to read\n",(int)pthread_self());
       read_lock();
-      printf("thread %d reading (%d readers)\n",(int)pthread_self(),readcount);
+      printf("thread %d reading\n",(int)pthread_self());
       int v = value;
       usleep(rand()%sleeptime);
       printf("thread %d done reading value %d\n",(int)pthread_self(),v);
@@ -53,7 +53,7 @@ void * reader_writer_thread( void * arg )
       printf("thread %d writing value %d\n",(int)pthread_self(),v);
       value = v;
       usleep(rand()%sleeptime);
-      printf("threed %d done writing value\n",(int)pthread_self(),v);
+      printf("thread %d done writing value %d\n",(int)pthread_self(),v);
       write_unlock();
     }
   }
